@@ -1,0 +1,7 @@
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: tpp-onboarding,
+    distributionFolder: /build/
