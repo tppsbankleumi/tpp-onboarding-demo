@@ -1,5 +1,5 @@
 {
   "deafult-psu": "1052107489",
-  "leumi-login-app": "http://localhost:3001",
-  "Server-URL": "https://4c10c71572ee.ngrok.io"
+  "leumi-login-app": "https://tpp-onboarding-demo.web.app",
+  "Server-URL": ""
 }
