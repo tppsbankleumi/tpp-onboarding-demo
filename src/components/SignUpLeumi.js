@@ -34,10 +34,10 @@ async function doAction(props, setShowProgress) {
   props.setVerifiier(verifiier);
   props.setClientId(consent.data.tpp_id);
   props.setConsentId(consent.data.consentId);
-  let codeChallangeMethod = 'sha256';
+
   //TDOD call discovery
   window.location.assign(
-    `${configData['leumi-login-app']}/login?serverUrl=${configData['Server-URL']}&consentId=${consent.data.consentId}&redirectUri=${authorizationEndpoint}&tppId=${consent.data.tpp_id}`
+    `${configData['leumi-login-app']}/login?codeChallenge=${codeChallenge}&consentId=${consent.data.consentId}&redirectUri=${authorizationEndpoint}&tppId=${consent.data.tpp_id}`
   );
 }
 

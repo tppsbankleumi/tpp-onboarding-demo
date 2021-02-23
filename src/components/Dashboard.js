@@ -132,7 +132,7 @@ function Dashboard(props) {
   const query = useQuery();
 
   // get params from URL
-  const codeVerifier = query.get('codeVerifier');
+  // const codeVerifier = query.get('codeVerifier');
   const code = query.get('code');
 
   const handleDrawerOpen = () => {
@@ -177,19 +177,19 @@ function Dashboard(props) {
             {/* Chart */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart accsessCode={code} verifiier={codeVerifier} />
+                <Chart accsessCode={code} />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Deposits accsessCode={code} verifiier={codeVerifier} />
+                <Deposits accsessCode={code} />
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders accsessCode={code} verifiier={codeVerifier} />
+                <Orders accsessCode={code} />
               </Paper>
             </Grid>
           </Grid>
@@ -207,10 +207,12 @@ function logoutAction(logout) {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(`STATE: ${state.loginReducer.verifiier}`)
   return {
     token: state.loginReducer.token,
     validConsent: state.loginReducer.validConsent,
     progressMessage: state.accountsReducer.progressMessage,
+    verifiier: state.loginReducer.verifiier,
   };
 };
 

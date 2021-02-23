@@ -165,6 +165,7 @@ const mapStateToProps = (state, ownProps) => {
     progressMessage: state.accountsReducer.progressMessage,
     consentId: state.loginReducer.consentId,
     clientId: state.loginReducer.clientId,
+    verifiier: state.loginReducer.verifiier,
   };
 };
 
