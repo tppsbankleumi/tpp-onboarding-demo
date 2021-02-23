@@ -37,7 +37,7 @@ async function doAction(props, setShowProgress) {
   let codeChallangeMethod = 'sha256';
   //TDOD call discovery
   window.location.assign(
-    `${configData['leumi-login-app']}/login?consentId=${consent.data.consentId}&codeChallenge=${codeChallenge}&codeChallengeMethod=${codeChallangeMethod}&redirectUri=${authorizationEndpoint}&clientId=${configData['deafult-psu']}&tppId=${consent.data.tpp_id}`
+    `${configData['leumi-login-app']}/login?serverUrl=${configData['Server-URL']}&consentId=${consent.data.consentId}&redirectUri=${authorizationEndpoint}&tppId=${consent.data.tpp_id}`
   );
 }
 
