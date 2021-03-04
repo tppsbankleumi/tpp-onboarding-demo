@@ -11,46 +11,7 @@ AWS.config.credentials.accessKeyId = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
 AWS.config.credentials.secretAccessKey = process.env.REACT_APP_AWS_SEVERET;
 
 //TODO: Should be deployed as a dedicated lambda with its own gateway
-export function createToken(user, password) {
-  const authenticationData = {
-    Username: user,
-    Password: password,
-  };
-  const authenticationDetails = new AuthenticationDetails(authenticationData);
-  const poolData = {
-    UserPoolId: 'eu-west-1_5bJiKHtGy',
-    ClientId: '7lkbhl1jv9k29agsva52h1a6ai',
-  };
-
-  const userPool = new CognitoUserPool(poolData);
-  const userData = {
-    Username: user,
-    Pool: userPool,
-  };
-
-  const cognitoUser = new CognitoUser(userData);
-  let result = new Promise((resolve, reject) => {
-    cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: resolve,
-      onFailure: reject,
-    });
-  })
-    .then(result => {
-      const token = result.getIdToken().getJwtToken();
-      return lambdify(200, {
-        token: token,
-        message: null,
-      });
-    })
-    .catch(({ message }) => {
-      console.log(message);
-      return lambdify(500, {
-        token: '',
-        message: message,
-      });
-    });
-  return result;
-}
+export function createToken(user, password) {}
 
 function lambdify(statusCode, body) {
   return {

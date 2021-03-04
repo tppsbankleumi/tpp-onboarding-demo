@@ -25,6 +25,7 @@ import configData from '../config.json';
 async function doAction(props, setShowProgress) {
   setShowProgress(true);
   let consent = await createConsent(configData['deafult-psu']);
+  console.log(`CONSENT: ${JSON.stringify(consent)}`);
   let consentDiscovery = await getConsentDiscovery(configData['deafult-psu']);
   const authorizationEndpoint = JSON.parse(consentDiscovery.data.body)
     .authorization_endpoint;
